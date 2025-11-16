@@ -297,7 +297,7 @@ plt.title(r'Longitudinal and Transverse Structure Functions', fontsize=16)
 plt.legend(fontsize=12)
 plt.grid(True, which="both", ls="--", alpha=0.5)
 
-# Optional: Limit x-axis to the requested range (e.g., up to 5x10^3)
+# Limit x-axis to the requested range
 plt.xlim(left=r_norm[0], right=5e3)
 
 plt.tight_layout()
@@ -306,10 +306,8 @@ plt.show()
 
 # --- Code for the Compensated Structure Function Plot ---
 
-# IMPORTANT: You must get these values from your class notes!
-# I am using common placeholder values here.
-C2_from_notes = 2.1  # <-- !! REPLACE THIS with the value for C2 from your notes
-C2_prime_from_notes = (4/3) * C2_from_notes # Or use the C'2 value from your notes
+C2_from_notes = 2.1  
+C2_prime_from_notes = 2.8
 
 # 1. Calculate the compensation factor
 # We use (epsilon_bar * r) raised to the power of (-2/3)
@@ -417,11 +415,8 @@ E11_norm = E11 / kolmogorov_norm
 E22_norm = E22 / kolmogorov_norm
 
 # --- 3. Define Theoretical Lines ---
-# WARNING: The prompt says to compare with C1 and C2 "as defined in the notes."
-# The standard values are C1 ~ 0.5 and C2 = (4/3)*C1.
-# YOU MUST CHECK YOUR NOTES for the values you are supposed to use.
-C1_const = 0.53  # <-- CHECK YOUR NOTES FOR THIS VALUE
-C2_const = (4/3) * C1_const
+C1_const = 0.524  
+C2_const = (4) * C1_const
 
 # We'll plot the theory in a reasonable inertial range (e.g., 10^-3 to 10^-1)
 k_theory = np.logspace(-4, 0.5, 50)
@@ -532,17 +527,13 @@ E22 = 2 * np.real(fft.fft(g_r * rms_v**2)) / 32768
 k_norm = k * kolmo_scale
 
 # --- 2. Get Normalization Factor ---
-# This is the unusual normalization requested by the prompt
 kolmogorov_norm = (dissipation_rate * kin_viscosity**5)**(1/4)
 E11_norm = E11 / kolmogorov_norm
 E22_norm = E22 / kolmogorov_norm
 
 # --- 3. Define Theoretical Lines ---
-# WARNING: The prompt says to compare with C1 and C2 "as defined in the notes."
-# The standard values are C1 ~ 0.5 and C2 = (4/3)*C1.
-# YOU MUST CHECK YOUR NOTES for the values you are supposed to use.
-C1_const = 0.53  # <-- CHECK YOUR NOTES FOR THIS VALUE
-C2_const = (4/3) * C1_const
+C1_const = 0.524  
+C2_const = (4) * C1_const
 
 # We'll plot the theory in a reasonable inertial range (e.g., 10^-3 to 10^-1)
 k_theory = np.logspace(-4, 0.5, 50)
