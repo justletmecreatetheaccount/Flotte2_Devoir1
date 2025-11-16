@@ -336,9 +336,8 @@ plt.legend(fontsize=12)
 plt.grid(True, which="both", ls="--", alpha=0.5)
 
 # Limit the x-axis to the inertial range (r/eta >> 1) to see the plateau
-# You may need to adjust these limits to best show your plateau
 plt.xlim(left=10, right=5e3) 
-plt.ylim(bottom=0.5, top=5) # Adjust this y-range to center on your constants
+plt.ylim(bottom=0.5, top=5) 
 
 plt.tight_layout()
 plt.show()
@@ -401,7 +400,7 @@ plt.ylabel('Autocorrelation', fontsize=14)
 plt.title('Longitudinal and Transverse Autocorrelation Functions', fontsize=16)
 plt.legend(fontsize=12)
 plt.grid(True, which="both", ls="--", alpha=0.5)
-plt.xlim(0, 500) # As requested by prompt
+plt.xlim(0, 500)
 plt.ylim(bottom=min(np.min(f_r[:plot_limit_points]), np.min(g_r[:plot_limit_points])), top=1.05)
 plt.show()
 
@@ -409,7 +408,6 @@ plt.show()
 k_norm = k * kolmo_scale
 
 # --- 2. Get Normalization Factor ---
-# This is the unusual normalization requested by the prompt
 kolmogorov_norm = (dissipation_rate * kin_viscosity**5)**(1/4)
 E11_norm = E11 / kolmogorov_norm
 E22_norm = E22 / kolmogorov_norm
